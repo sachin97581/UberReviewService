@@ -1,13 +1,34 @@
 package com.example.UberReviewService.Models;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.persistence.*;
+import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.util.Date;
+
+
+
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-public class Review {
+@ToString
+@Table(name = "bookingReviewTable")
+public class Review extends BaseModel {
 
-    @Id
-    Long id;
+
+    @Column(nullable = false)
+   private String content;
+
+    @Column
+    private int rating;
+
+
 
 }
