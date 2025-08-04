@@ -20,6 +20,7 @@ import java.util.Date;
 @Entity
 @ToString
 @Table(name = "bookingReviewTable")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Review extends BaseModel {
 
 
@@ -28,7 +29,6 @@ public class Review extends BaseModel {
 
     @Column
     private int rating;
-
 
 
 }
