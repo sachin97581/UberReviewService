@@ -29,32 +29,30 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
 	// Lombok
-//	compileOnly 'org.projectlombok:lombok:1.18.32'
-//	annotationProcessor 'org.projectlombok:lombok:1.18.32'
+	compileOnly 'org.projectlombok:lombok:1.18.34'
+	annotationProcessor 'org.projectlombok:lombok:1.18.34'
+	testCompileOnly 'org.projectlombok:lombok:1.18.34'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
 
-
-		// For compilation and IDE support (e.g., code completion)
-		compileOnly 'org.projectlombok:lombok:1.18.34'
-
-		// For annotation processing during compilation
-		annotationProcessor 'org.projectlombok:lombok:1.18.34'
-
-		// If you use Lombok in your tests as well
-		testCompileOnly 'org.projectlombok:lombok:1.18.34'
-		testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
-
-	// Spring Boot DevTools (hot reload)
+	// DevTools
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-	// Database Driver (MySQL)
+	// MySQL driver
 	runtimeOnly 'com.mysql:mysql-connector-j'
 
-	// Configuration processor for @ConfigurationProperties
+	// Configuration properties processor
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
 	// Testing
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// ✅ Flyway core + MySQL support
+//	implementation 'org.flywaydb:flyway-core:8.4.4'
+//	implementation 'org.flywaydb:flyway-mysql:8.4.4'
+	implementation 'org.flywaydb:flyway-core:10.10.0'
+	implementation 'org.flywaydb:flyway-mysql:10.10.0'
+
 }
 
 

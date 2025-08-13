@@ -1,39 +1,23 @@
 package com.example.UberReviewService.Services;
 
-import com.example.UberReviewService.Models.Driver;
+
 import com.example.UberReviewService.Models.Review;
-import com.example.UberReviewService.Repositories.DriverRepository;
-import com.example.UberReviewService.Repositories.ReviewRepositories;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
-
 @Service
-public class ReviewService implements CommandLineRunner {
-    ReviewRepositories reviewRepositories ;
-    DriverRepository driverRepository;
+public interface ReviewService {
 
-    public ReviewService(ReviewRepositories reviewRepositories , DriverRepository driverRepository){
-        this.driverRepository = driverRepository;
-        this.reviewRepositories = reviewRepositories;
-    }
+    public Optional<Review> findReviewById(Long id);
 
-    @Override
-    public void run(String... args) throws Exception {
-        System.out.println("*******************");
-        Review review = Review.builder()
-                .content("Great ride!")
-                .rating(5)
-                .build();
-        reviewRepositories.save(review);
-    }
+    public List<Review> findAllReview();
 
-//    List<Driver> drivers = driverRepository.findAll();
-//    Optional<Driver> driver = driverRepository.findAllByNameAndId();
+    public boolean deleteReviewById(Long id);
 
+    public Review publishReview(Review review);
 
+    public Review updateReviewById(Long id , Review review);
 }
